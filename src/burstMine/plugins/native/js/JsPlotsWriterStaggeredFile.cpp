@@ -110,8 +110,8 @@ void JsPlotsWriterStaggeredFile::writePlots(const v8::FunctionCallbackInfo<v8::V
 	asyncData->callback.Reset(p_info.GetIsolate(), v8::Local<v8::Function>::Cast(p_info[2]));
 
 	try {
-		asyncData->size = static_cast<std::size_t>(p_info[0]->ToNumber()->Value());
-		asyncData->buffer = cryo::burstMine::js::JsScoopsBuffer::FromObject(p_info.GetIsolate(), p_info[1]->ToObject());
+		asyncData->buffer = cryo::burstMine::js::JsScoopsBuffer::FromObject(p_info.GetIsolate(), p_info[0]->ToObject());
+		asyncData->size = static_cast<std::size_t>(p_info[1]->ToNumber()->Value());
 	} catch(const std::exception& p_ex) {
 		p_info.GetIsolate()->ThrowException(v8::Exception::Error(v8::String::NewFromUtf8(p_info.GetIsolate(), p_ex.what())));
 		return;

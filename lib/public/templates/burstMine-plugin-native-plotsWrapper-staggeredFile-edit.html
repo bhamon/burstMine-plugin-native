@@ -1,0 +1,14 @@
+<ng-form name="formParams">
+	<div class="form-group" show-errors>
+		<label class="control-label">Stagger size</label>
+		<input type="number" name="staggerSize" class="form-control" ng-model="data.staggerSize" ng-change="correctNumber()" min="1" required>
+	</div>
+	<div class="form-group">
+		<label class="control-label">Buffer size</label>
+		<p class="form-control-static">{{data.staggerSize * 4096 * 64 | unit:[1,1024,1024,1024]:['B','KB','MB','GB']}}</p>
+	</div>
+	<div class="form-group" show-errors>
+		<label class="control-label">Path</label>
+		<input type="text" name="path" class="form-control" ng-model="data.path" required>
+	</div>
+</ng-form>

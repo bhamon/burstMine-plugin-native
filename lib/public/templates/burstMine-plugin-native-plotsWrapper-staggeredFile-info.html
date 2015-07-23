@@ -1,0 +1,11 @@
+<p>
+	The staggeredFile plots wrapper uses a native binding to handle plots in a file with a parametric staggerSize value.
+	It is a basic implementation of the original file writer (<code>address_offset_number_staggerSize</code>).
+	The scoops are stored in a file and are partially optimized in large chunks.
+	The chunks size is controlled by the <code>staggerSize</code> parameter.
+</p>
+<p>
+	The plots writers created from this wrapper use a buffer with a length of <code>staggerSize</code> plots to reorder the generated scoops.
+	Once the buffer is full, it is written to disk.
+</p>
+<p>The plots readers created from this wrapper generates <code>plotsNumber / staggerSize</code> input operations on the target disk.</p>
